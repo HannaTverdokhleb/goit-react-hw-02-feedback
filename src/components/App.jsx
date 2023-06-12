@@ -22,18 +22,19 @@ class App extends Component {
   }
 
   leaveFeedback = (e) => {
-    let feedback = e.target.dataset['k']; 
+    let feedback = e.target.name; 
     this.setState((prevState) => ({ [feedback]: prevState[feedback] + 1 }));
   }
 
   render() {
+    let feedbackOptions = Object.keys(this.state);
     const { good, neutral, bad } = this.state;
     let total = this.getTotal();
     let positivePercentage = this.getPositivePercentage();
     return (
       <div className="container">
         <Section title="Please leave feedback">
-          <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={this.leaveFeedback} />
+          <FeedbackOptions options={feedbackOptions} onLeaveFeedback={this.leaveFeedback} />
         </Section>
         <Section title="Statistics">
           {
