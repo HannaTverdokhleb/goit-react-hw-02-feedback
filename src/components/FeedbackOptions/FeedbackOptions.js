@@ -3,16 +3,26 @@ import style from 'components/FeedbackOptions/FeedbackOptions.module.css'
 
 const FeedbackOptions = ({options, onLeaveFeedback}) => {
 
+    // return (
+    //     <div className={style.buttonWrapper}>
+    //         {options.map(option => {
+    //             return (
+    //                 <button key={option} name={option} onClick={onLeaveFeedback} className={style.button}>{option}</button>
+    //             )
+    //         })}
+    //     </div>  
+    // )
     return (
         <div className={style.buttonWrapper}>
             {options.map(option => {
                 return (
-                    <button key={option} name={option} onClick={onLeaveFeedback} className={style.button}>{option}</button>
+                    <button key={option} name={option} onClick={()=>onLeaveFeedback(option )} className={style.button}>{option}</button>
                 )
             })}
-        </div>  
+        </div>
     )
 }
+
 
 FeedbackOptions.propTypes = {
     options: PropTypes.array.isRequired,

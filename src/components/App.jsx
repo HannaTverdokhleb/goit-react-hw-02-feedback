@@ -21,9 +21,8 @@ class App extends Component {
     return Math.round(parseFloat(result) * 100) / 100;
   }
 
-  leaveFeedback = (e) => {
-    let feedback = e.target.name; 
-    this.setState((prevState) => ({ [feedback]: prevState[feedback] + 1 }));
+  leaveFeedback = (option) => {
+    this.setState((prevState) => ({ [option]: prevState[option] + 1 }));
   }
 
   render() {
